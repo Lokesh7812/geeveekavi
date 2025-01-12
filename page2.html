@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>கவிஞர் ஜீவி</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url("src/img/bg2.png");
+            background-repeat:repeat-y;
+            background-size: cover;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            overflow-x: hidden;
+            margin: 0%;
+        }
+        header {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    font-weight: bolder;
+}
+header h1 {
+    margin: 0%;
+    margin-left: 10px;
+    font-size: 24px;
+}
+.menu-icon {
+    z-index: 1000;
+    background-color: #00abc2;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    transition: transform 0.3s ease;
+}
+.menu-icon:hover {
+    transform: scale(1.1);
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1000;
+}
+.dropdown-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.dropdown-menu ul li {
+    border-bottom: 1px solid #ccc;
+}
+.dropdown-menu ul li:last-child {
+    border-bottom: none;
+}
+.dropdown-menu ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+.dropdown-menu ul li a:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+.menu-icon 
+{color : black
+}
+.dropdown-menu ul li a:hover {
+  background-color: #4ca3af;
+  color: white;
+}    
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(440px, 340px));
+            max-width: 8vw;
+            gap: 10px;
+            padding: 20px;
+            max-width: 90vw;
+            margin: 0 auto;
+            width: fit-content;
+        }
+
+        .gallery div{
+            margin-right: 0%;
+            margin-left: 0%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .photo {
+            border-radius: 15px;
+            background-color: #ffffff10;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transform: scale(0.9);
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            display: inline-block; 
+            vertical-align: top; 
+
+            margin-bottom: 10px;
+            padding-left: 20px;
+            padding-bottom: 10px;
+            padding-right: 80px;
+            font-weight: bold;
+
+            background-image: url("corner.png");
+            background-size: 300px;
+            background-repeat: no-repeat;
+            background-position: bottom right;
+
+            min-height: 200px;
+            height: fit-content;
+        }
+
+        .photo h2{
+            font-size: 1.8rem;
+            text-decoration: underline #0000003f 5px;
+        }
+
+        .photo pre{
+            font-size: 1rem;
+        }
+
+        .photo[data-animation="left"] {
+            transition: transform;
+            animation: slideInLeft 1s forwards;
+            animation-timeline: view();
+            animation-range: entry 0% cover 30%;
+        }
+
+        .photo[data-animation="right"] {
+            animation: slideInRight 1s forwards;
+            animation-timeline: view();
+            animation-range: entry 0% cover 30%;
+        }
+
+        .photo[data-animation="bottom"] {
+            animation: slideInBottom 1s forwards;
+            animation-timeline: view();
+            animation-range: entry 0% cover 30%;
+        }
+
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px) scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+
+        @keyframes slideInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(50px) scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+
+        @keyframes slideInBottom {
+            0% {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .link_div{
+            margin: 40px auto;
+            width: fit-content;
+            text-align: center;
+        }
+
+        .link_div a{
+            text-decoration: none;
+        }
+
+        .link{
+            width: fit-content;
+            height: fit-content;
+            margin: auto;
+            padding: 20px;
+            background-color: #00abc2;
+            color: #ffffff;
+            border-radius: 20px;
+            font-weight: bolder;
+            transition: ease-in-out 0.2s;
+        }
+
+        .link:hover{
+            scale: 1.05;
+            transition: ease-in-out 0.2s;
+            background-color: #333;
+        }
+
+        footer {
+display: flex;
+background-color: #ffffff;
+border-top: 2px solid #ddd;
+box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+margin-top: 100px;
+text-align: center;
+}
+/* General Styles for Sections */
+.footer-section {
+flex: 1;
+text-align: center;
+align-content: center;
+}
+
+.footer-section:first-child {
+background-color: #97c0c4;
+animation: first linear;
+animation-timeline: view();
+animation-range: entry 0% cover 10%;
+}
+.footer-section:nth-child(2) {
+background-color: #779699;
+animation: second linear;
+animation-timeline: view();
+animation-range: entry 0% cover 10%;
+}
+.footer-section:last-child {
+background-color: #97c0c4;
+animation: third linear;
+animation-timeline: view();
+animation-range: entry 0% cover 10%;
+}
+
+@keyframes first {
+from {
+opacity: 0;
+transform: translateX(-100px);
+}
+to {
+opacity: 1;
+transform: translateX(0px);  
+}
+}
+
+@keyframes second {
+from {
+opacity: 0;
+transform: translateY(100px);
+}
+to {
+opacity: 1;
+transform: translateY(0px);  
+}
+}
+
+@keyframes third {
+from {
+opacity: 0;
+transform: translateX(100px);
+}
+to {
+opacity: 1;
+transform: translateX(0px);  
+}
+}
+
+
+
+/* Vertical Divider Between Sections */
+.footer-section:not(:last-child) {
+border-right: 1px solid #ccc;
+}
+.fa {
+padding: 8px;
+font-size: 40px;
+width: 38px;
+height: 40px;
+text-align: center;
+text-decoration: none;
+margin: 10px 5px;
+border-radius: 50%;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fa:hover {
+transform: scale(1.2);
+box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.8);
+}
+
+.fa-facebook {
+background: #3B5998;
+color: white;
+}
+
+.fa-google {
+background: #dd4b39;
+color: white;
+}
+
+.fa-youtube {
+background: #bb0000;
+color: white;
+}
+
+.fa-instagram {
+background: #125688;
+color: white;
+}
+
+/* Glowing animation */
+@keyframes glow {
+0% {
+box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+50% {
+box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+100% {
+box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+}
+
+.fa:hover {
+animation: glow 1s infinite;
+}
+
+@media screen and (max-width:450px) {
+    header{
+        width: auto;
+    }
+    .images{
+        flex-direction: column;
+    }
+
+    .gallery{
+        display: flex;
+        flex-direction: column;
+    }
+  
+    footer{
+        flex-direction: column;
+    }
+    .heading{
+        padding-top: 40px;
+    }
+
+    .footer-section:first-child,
+    .footer-section:nth-child(2) {
+        width: 100%;
+    }
+    .footer-section:last-child {
+        padding-bottom: 20px;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>கவிஞர் ஜீவி, மனதை உருக்கும் கவிதைகள்</h1>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="dropdown-menu" id="dropdownMenu">
+            <ul>
+                <li><a href="page5.html">கவிஞர் ஜீவி</a></li>
+                <li><a href="page3.html">தொகுப்புகள் பட்டியல்</a></li>
+                <li><a href="page4.html">விருதுகள் பட்டியல்</a></li>
+                <li><a href="page2.html">கவிதைகள்</a></li>
+                <li><a href="page6.html">நேர்காணல்கள்</a></li>
+                <li><a href="page8.html">மேடை பேச்சுகள்</a></li>
+                <li><a href="page7.html">புகைப்படங்கள்</a></li>
+                <li><a href="index.html">முகப்பு</a></li>
+            </ul>
+        </div>
+    </header>
+    <br>
+    <center>
+    <h1>கவிதைகள்
+    </h1></center>
+    <br>
+    <section class="gallery">
+    <div>
+        <div class="photo" data-animation="left">
+            <h2>கரகமாய் மட்டுமல்ல...
+                </h2>
+            <pre>
+வானவில்லின் வர்ணம் 
+ஒட்டுகிறதா எனத் 
+தொட்டுப் பார்.
+
+ஒழுகும் மழையால்
+ உன் மனசை நிரப்பு.
+
+தென்றல் வீசியும் 
+பன்னீராய் வேர்க்கும்
+ பூக்களுக்குக் 
+ கைக்குட்டை கொடு.
+
+வானமரம் உலுக்கி 
+நட்சத்திரக்காய் பொறுக்கு.
+
+நிலவொளியை விரலிடுக்கில் 
+வழியவிட்டு மரங்களின் 
+பரதம் பார்.
+
+என்றெல்லாம் எழுத
+எங்களுக்கும் ஆசைதான். 
+ஆனால் 
+நிஜங்களை நிராகரித்துவிட்டு 
+நிழல்களோடு 
+கைகுலுக்க முடியுமா?
+
+அதனால்தான்... 
+வாழ்க்கையின் 
+அவலங்களுக்கு எதிராய்ப் 
+போராடு என்று 
+புதுக்கவிதை செய்கிறோம்.
+
+கவிதையை 
+கரகமாய் மட்டுமல்ல... 
+வாளாகவும் 
+சுழற்றி வருகிறோம்.
+            </pre>
+        </div>
+
+        <div class="photo" data-animation="bottom">
+            <h2>
+                என் தோழனுக்கு..
+            </h2>
+            <pre>
+எழுந்திரு இளைஞனே! 
+எழுந்திரு! 
+சாதிக்க வேண்டுமெனில்
+விழுந்து அடிபடு,
+வேகமாய் செயல்படு
+
+வேரில் வீழ்கிற வேர்வைத்
+துளிகள் தான் பூவாய்ச் 
+சிரிக்கும் புரிந்துகொள்
+இதனை சும்மா இருந்தால் 
+சுகம் கிடைக்காது
+
+அடைய வேண்டுமெனில் 
+அவஸ்தை அவசியம்
+
+ஊருக்கும் சேர்த்தே 
+உன்னாசை இருக்கட்டும் 
+உனதாசை நிறைவேற 
+ஓயாமல் போராடு.
+
+திசையைத் தீர்மானம் 
+செய் தடுமாற்றம் 
+ஆனாலும் 
+தடமாற்றம் ஆகாதே.
+
+நிமிடத்தை நீட்டித்து 
+நித்தமும் செயல்படு 
+ஒவ்வொரு செயலும் 
+உனக்கொரு அனுபவம்.
+
+எழுந்திரு இளைஞனே! 
+எழுந்திரு! 
+சாதிக்க வேண்டுமெனில் 
+விழுந்து அடிபடு, 
+வேகமாய் செயல்படு.
+            </pre>
+        </div>
+
+        <div class="photo" data-animation="right">
+            <h2>
+                சரிகப் புடவை கட்டி
+            </h2>
+            <pre>
+எல்லையிலே காளிகோயில் 
+ஏழு நாள் திருவிழாவாம். 
+திருவிழா சிறப்பாக 
+தேரோட்டம் சாயங்காலம்.
+
+சாயங்கால வேளையிலே 
+அம்மனை அலங்கரிச்சு 
+சரிகப்புடவை கட்டி 
+சரம்சரமாய் நகை 
+போட்டு ஊர்கோலம்
+ போகுமின்னு ஊரே 
+ மகிழ்ந்திடுது.
+
+தேரோட்டம் பார்ப்பதற்கு 
+எதைக்கட்டிப் போவதுன்னு 
+மாடிவீடுகளில் 
+மாலைவரை யோசனைகள்.
+
+எதைத்தான் கட்டுறது 
+எல்லாமே கிழிஞ்சிருக்கு. 
+என் போன்றோர் நிலை 
+இதுதான் என்னத்தச் 
+சொல்லி அழ.
+
+ஆளான நாள் முதலா 
+ஆத்தாளின் பழம் புடவ 
+தனித்துணியே 
+எடுத்ததில்ல தங்கச்சிக்கு 
+என் கிழிசல்.
+
+சரிகப்புடவ கட்டி 
+சாயங்காலம் ஊர்வலமாம்
+ அம்மன் பார்க்கப் 
+ போக வேணும் 
+ அண்ணாச்சி 
+ வழி சொல்லு.
+            </pre>
+        </div>
+
+    
+
+        <div class="photo" data-animation="bottom">
+            <h2>
+                நல்ல வியாபாரம்
+            </h2>
+            <pre>
+அவன் 
+ஐம்பதினாயிரம் போட்டு
+மொத்த வியாபாரம் 
+நடத்தினான்.
+ஐயாயிரம் மட்டுமே 
+இருப்பாய் இருந்தது.
+
+அதையே முதலாக்கி 
+சிறு வியாபாரம் நடத்தினான். 
+கடைசியில் 
+அவனுக்கு கடன் வந்தது.
+
+பொய்யையே முதலாக்கி 
+அரசியல் நடத்தினான்.
+இலட்சக் கணக்கில் 
+இலாபம் வந்தது.
+            </pre>
+        </div>
+
+        <div class="photo" data-animation="right">
+            <h2>
+                மழை
+            </h2>
+            <pre>
+வைரத்துளியாய் வழியும் 
+மழைத்துளி மனசு முழுதும் 
+மகிழ்ச்சி பரப்பும்.
+
+மேகமரம் உதிர்க்கும் 
+பன்னீர்ப் பூக்களாய் 
+தூறல்கள்.
+                
+நட்சத்திரக் கம்பிகள் 
+தரை இறங்குவது மாதிரி 
+தாரைகள் பொழிந்திட 
+தேகம் சிலிர்க்கும்.
+            
+தண்ணீர் ஊசிகள் 
+தரையில் பாய 
+கொப்புளம் எழும்.
+            
+'ஓ'வெனப் பெய்யும்
+ பெரு மழையோ 
+ பிரிய நண்பனாய் 
+ முதுகில் அறையும்.
+                
+நண்பர்களோடு குற்றாலம
+ போய் பொழிந்து நகரும் 
+ மேகங்களை மகிழ்ந்து
+பார்ப்பதும் ஆனந்தம் தான்.
+
+ஆனாலும்- நள்ளிரவுத் 
+தூக்கத்தில் அம்மா உசுப்பி 
+ஒழுகும் இடம் விட்டு... 
+பாய் நகர்த்தி...
+            </pre>
+        </div>
+        
+        
+    </div>
+    <div>
+        <div class="photo" data-animation="right">
+            <h2>
+                மிடில் கிளாஸ்...
+            </h2>
+            <pre>
+நாங்கள் 
+முதல் தேதியின் பிள்ளைகள். 
+பற்றாக்குறையின் 
+பெற்றோர்கள்.
+                
+மேட்டு வர்க்கத்தின் 
+மிச்சத்தைக் காட்டுவதற்கு 
+நட்டப்படும் நடுத்தர வர்க்கங்கள். 
+நாங்கள் போட்டிருக்கும் 
+சட்டையின் கோடுகளை 
+மற்றவர்கள் எண்ணிக் 
+கொண்டிருக்கும்போது 
+நாங்கள் மட்டுமே 
+அதன் இன்சால்மென்டுகளை 
+எண்ணிக் கொண்டிருப்போம்.
+                
+ஒயிட் அண்ட் ஒயிட்டில் டூ 
+விலரில் புருஷனோடு 
+போவதாய்க் கனவு கண்டு 
+வந்த எம் மனைவிமார்கள் 
+எதார்த்தத்தில் துருப்பிடித்த
+ சைக்கிளைக் கண்டதும் 
+ வெறுப்படித்து இருக்கிறார்கள்.
+
+ஐ.ஏ.எஸ். கனவுகளோடு 
+ஐந்து மாத பாக்கி சொல்லி 
+எம் பிள்ளைகள் டியூசன் 
+போய்க் கொண்டிருக்கின்றன.
+
+                
+எங்களைப் பொறுத்தவரை 
+அங்கிங்கெனாதபடி எங்கும்
+ இருப்பது ஆண்டவன் அல்ல... 
+ அக்கவுண்ட் தான்.
+            </pre>
+        </div>
+
+        <div class="photo" data-animation="left">
+            <h2>
+                காலம் காலமாய்...
+            </h2>
+            <pre>
+சேதுவின் கரையில் 
+ஏகமாய்க் கூட்டம். 
+சீதையின் பிரிவில் 
+சோகமாய் இராமன். 
+அண்ணலின் மனைவி 
+அவனோடு சேர 
+தம் மனைவிகளின்
+ நினைவு
+
+நெஞ்சிலும் 
+கொஞ்சம் கற்கள் 
+தலையிலும் சுமந்த கூட்டம் 
+சுற்றிலும்... சுற்றிலும்...
+
+யமுனைக் கரையில் 
+கூட்டமாய் மக்கள் 
+அதன் 
+தண்ணீரில் பாதி கண்ணீர்.
+
+மும்தாஜ் இறப்பில் 
+முடங்கிய ஷாஜஹான் 
+தாஜீன் நினைவை 
+பளிங்கில் செதுக்க 
+வீட்டு நினைவை 
+ஒதுக்கி வைத்து 
+வேலை செய்யும் 
+சிற்பிகள்... சிற்பிகள்.
+
+சரித்திரம் எப்போதும் 
+பன்னீரின் கண்ணீரையே 
+பார்க்கிறதே! 
+வேர்வையின் விசும்பலை 
+விசாரிக்காதா?
+            </pre>
+        </div>
+
+        <div class="photo" data-animation="bottom">
+            <h2>
+                மழைத் துளிகள்...
+            </h2>
+            <pre>
+குறை கேட்கும் மந்திரி 
+கூட்டமாய் மக்கள் 
+வெள்ளைத்தாள் விற்பனை.
+            </pre>
+        </div>
+        <div class="photo" data-animation="right">
+            <h2>
+                ஹைக்கூ மின்னல்கள்
+            </h2>
+            <pre>
+கையில் காசில்லை 
+நட்சத்திரங்களைத் தான் 
+எண்ண வேண்டும்
+            </pre>
+        </div>
+        
+        <div class="photo" data-animation="left">
+            <h2>
+                நல்ல வியாபாரம்
+            </h2>
+            <pre>
+அவன் 
+ஐம்பதினாயிரம் போட்டு 
+மொத்த வியாபாரம்
+ நடத்தினான். 
+ஐயாயிரம் மட்டுமே 
+இருப்பாய் இருந்தது.
+
+அதையே முதலாக்கி 
+சிறு வியாபாரம் 
+நடத்தினான். 
+கடைசியில் 
+அவனுக்கு கடன் வந்தது.
+
+பொய்யையே முதலாக்கி 
+அரசியல் நடத்தினான். 
+இலட்சக் கணக்கில் 
+இலாபம் வந்தது.
+            </pre>
+        </div>
+
+        <div class="photo" data-animation="bottom">
+            <h2>
+                தடுமாற்றம்தான்
+            </h2>
+            <pre>
+ஆப்பசைத்த குரங்காய் 
+கோர்ப்பசேவ்... 
+இமைகளை உயர்த்திய 
+சோவியத் இமயம் 
+கூழாங்கல்லாய்...                
+வெள்ளை மாளிகையின் 
+ஜெராக்ஸாய் 
+கிரெம்ளின்...
+
+அம்மா சாவுக்குச் 
+சிரிக்கும் குழந்தையாய் 
+மாஸ்கோ வாசிகள்...
+
+ரொட்டிக்கு அழும் 
+பட்டினிப் பொழுதில் 
+சரித்திரம் மீண்டும் 
+செம்மண் பாதையில் 
+திரும்பக் கூடும்.
+
+இது 
+தடுமாற்றம்தான் 
+தடமாற்றம் அல்ல.
+            </pre>
+        </div>
+        <div class="photo" data-animation="left">
+            <h2>
+                வானவில்
+            </h2>
+            <pre>
+புருவமே 
+இவ்வளவு அழகெனில் 
+உருவம்?
+            </pre>
+        </div>
+        <div class="photo" data-animation="left">
+            <h2>
+                வாய்ப்பு
+            </h2>
+            <pre>
+வேலையில் சேர்ந்த 
+அன்று அப்பா 
+படிப்படியாய் 
+முன்னேறும்படி 
+சொன்னார்.
+
+பஞ்சப்படி
+பயணப்படி
+சலவைப்படி 
+மருத்துவப்படி என 
+படிப்படியாய்ப் பெற்றும் 
+உருப்படியாய் வீட்டில் 
+ஒன்றுமில்லை என்கிறார் 
+இப்போது அப்பா.
+            </pre>
+        </div>
+
+     
+        
+        
+    </div>
+    <div>
+        <div class="photo" data-animation="left">
+            <h2>
+                பார்வை
+            </h2>
+            <pre>
+ஐந்து மணிக்கு 
+அலாரம் அடிக்க 
+எழுந்து போனாள் 
+வாசல் தெளிக்க
+கோலம் போட்டு 
+கூடம் பெருக்கி 
+அடுக்களை கழுவ 
+ஆறு ஆனது.
+
+பால் தரும்
+ ஆள்வர காப்பி 
+ போட்டு எழுப்பிக் 
+ கொடுக்க 
+ ஏழு ஆனது.
+
+சட்டினி அரைத்து 
+இட்டிலி சுட்டு 
+தட்டில் தருகையில்
+சரியாய் எட்டு.
+
+சின்ன மகனுக்குச் 
+சீருடை மாட்டி 
+கேட்டுக்கு வந்து 
+டாட்டா காட்டி 
+ஸ்கூலுக்கு அனுப்பி 
+ஹாலுக்குள் 
+நுழைகையில் 
+மணியோ ஒன்பது.
+
+கணவரின் தேவை 
+கணக்காய் முடித்து 
+ஆபிஸ் அனுப்பி 
+பத்துத் தேய்த்த பின் 
+பார்த்தால் பத்து.               
+            </pre>
+        </div>
+
+        <div class="photo" data-animation="bottom">
+            <h2>
+                விட்டு 
+                விடுதலையாகி...
+            </h2>
+            <pre>
+சிட்டுக் குருவிக்கு 
+சிரமம் இல்லை. 
+காஸ் கனெக்ஷன் 
+காய்கறி பேரம். 
+மளிகைக்காரனிடம் 
+பல்லிளிப்பு. 
+
+சிட்டுக்குருவிக்கு 
+சிரமம் இல்லை.
+
+அதிகப்பட்சம் போனால் 
+ஐந்தாறு அரிசிதான். 
+கடனுக்கு அலைச்சல் 
+காண்டிராக்டர் மோசடி. 
+சிமெண்ட் விலை 
+உயர்வால் தூக்கம் 
+தொலைப்பு.
+
+சிட்டுக்குருவிக்குச் 
+சிரமம் இல்லை. 
+தேவையெல்லாம் கொஞ்சம் 
+தேங்காய் நார்தான்.
+அவதூறு பேச்சு.
+அதிகாரப் போட்டி. 
+பழகிய ஆளுக்கே 
+பள்ளம் தோண்டுதல்.
+
+சிட்டுக்குருவிக்குச் 
+சிரமம் இல்லை. 
+எப்போதும் நேசப் 
+பார்வையும் 
+சந்தோசப்பாட்டும் தான்.
+
+            </pre>
+        </div>
+        <div class="photo" data-animation="right">
+            <h2>
+                வெள்ளம்
+            </h2>
+            <pre>
+வெக்கையில் 
+மனம் வெதும்பிச் 
+சொட்டு மழைக்கு 
+ஏங்கினேன்
+
+வெள்ளமாய்ப் பிரவகித்து 
+துரும்பாய் அடித்துச் 
+சென்றாய் என்னை நீ.
+            </pre>
+        </div>
+        
+        <div class="photo" data-animation="left">
+            <h2>
+                தூர்தல்
+            </h2>
+            <pre>
+உடைப்பெடுத்த ஏரியை
+அடைக்கக் கூடுவார்கள் 
+அப்போது.
+
+ஏரிகளைத் தூற்றுப் 
+பிளாட்டாக்கி 
+குழி தோண்டிக் 
+கொண்டிருக்கிறார்கள் 
+இப்போது.
+            </pre>
+        </div>
+
+        <div class="photo" data-animation="bottom">
+            <h2>
+                விளக்கம்
+            </h2>
+            <pre>
+பித்தளைச் சட்டிகளுக்குப் 
+புளிச்சக்கை.
+சில்வர் தட்டுகளுக்கு 
+விம் பவுடர்.
+வெள்ளிப் 
+பாத்திரங்களுக்கு 
+விபூதி மட்டும்.
+பளபளவென விளக்கி 
+வைக்கும் அம்மாவால்
+கடைசிவரை
+விளக்கவே முடியவில்லை 
+அப்பாவிடம் தன் மனசை.     
+            </pre>
+        </div>
+        <div class="photo" data-animation="right">
+            <h2>
+                மனசில்...
+            </h2>
+            <pre>
+அடைமழை நாளில் 
+இடைவெளி கிடைக்க 
+வீதிக்கு வந்து 
+விளையாடினான் மகன்.
+
+திடீரென மேகம் 
+தீர்த்தம் தெளிக்க 
+மனைவி பதைத்து 
+மகனைத் தூக்கினாள்.
+
+துண்டை எடுத்தவள் 
+துவட்டும் வேளையில் 
+முச்சந்தியிலிருந்து 
+பிச்சை கேட்கும் 
+சக்கர வண்டிச் 
+சிறுமி என்ன 
+ஆனாளோ என்ற 
+எண்ணம் வந்தது.     
+            </pre>
+        </div>
+        <div class="photo" data-animation="left">
+            <h2>
+                வௌவால் வாழ்க்கை
+            </h2>
+            <pre>
+விளக்குகளை விடவும் 
+இருட்டையே நம்புகிறார்கள்.
+பலூனைப் பெரிதாக்கவே 
+பயன்படுகிறது காற்று.
+
+நதிபோலவே 
+நடந்துகொள்கிறது
+ சாக்கடை.
+கைகுலுக்குவதை 
+விடவும் நகங்களால் 
+கீறவே விரும்புகிறார்கள்.
+
+புத்தகங்கள் படிப்பதில்லை 
+பூக்களோடு சிரிப்பதில்லை 
+நிலா ஒளிபரப்பு எவருமே 
+பார்ப்பதில்லை.
+கரன்சிகளை 
+எண்ணியே கழிகின்றன 
+நிமிடங்கள்.
+            </pre>
+        </div>
+
+    </div>
+
+    </section>
+    <div class="link_div">
+        <h2>.<br>.<br>.</h2>
+        <h2>மேலும் பார்க்க</h2>
+        <a href="Jeevee Kavithaigal layout.pdf" target="_blank"><div class="link">இங்கே கிளிக் செய்யவும்</div></a>
+        <h2>முழு கவிதை PDF ஐ பதிவிறக்கம் செய்ய</h2>
+    </div>
+
+    <footer>
+        <!-- Left Section -->
+        <div class="footer-section footer-left">
+            <h3>கவிஞர் ஜீவி கவிதைகள்</h3>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/share/17zuArNkj6/?mibextid=wwXIfr" class="fa fa-facebook"></a>
+                <a href="https://youtube.com/@geeveekavi417?si=7mAcOk8DAiUIKvST" class="fa fa-youtube"></a>
+                <a href="" class="fa fa-instagram"></a>
+                <a href="https://www.tamilwriters.in/2021/05/blog-post_33.html?m=1" class="fa fa-google"></a>
+            </div>
+        </div>
+    
+        <!-- Center Section -->
+        <div class="footer-section footer-center">
+            <h3><b>தொடர்புக்கு:</b> +91 9443120490</h3>
+            <h4><b>மின்னஞ்சல்:</b></h4><p> geeveekavi@gmail.com</p>
+        </div>
+    
+        <!-- Right Section -->
+        <div class="footer-section footer-right">
+            <h4>"கண்ணதாசன் கவிதையில் சொன்னது போல, கவிதை ஒரு வாழ்க்கைமுறை!"</h4>
+            <b><span>© 2025 geeveekavi.in All rights reserved.</span></b>
+        </div>
+    </footer>
+    <script>
+        // Dropdown Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('dropdownMenu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+
+</body>
+</html>

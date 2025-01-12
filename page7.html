@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>கவிஞர் ஜீவி</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url("src/img/bg.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            overflow-x: hidden;
+            margin: 0%;
+        }
+        header {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    font-weight: bolder;
+}
+header h1 {
+    margin: 0%;
+    margin-left: 10px;
+    font-size: 24px;
+}
+.menu-icon {
+    z-index: 1000;
+    background-color: #00abc2;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    transition: transform 0.3s ease;
+}
+.menu-icon:hover {
+    transform: scale(1.1);
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1000;
+}
+.dropdown-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.dropdown-menu ul li {
+    border-bottom: 1px solid #ccc;
+}
+.dropdown-menu ul li:last-child {
+    border-bottom: none;
+}
+.dropdown-menu ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+.dropdown-menu ul li a:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+.menu-icon 
+{color : black
+}
+.dropdown-menu ul li a:hover {
+  background-color: #4ca3af;
+  color: white;
+}    
+
+        
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .photo {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transform: scale(0.9);
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .photo:hover img {
+            transform: scale(1.1);
+        }
+
+        .photo[data-animation="left"] {
+            animation: slideInLeft 1s forwards;
+        }
+
+        .photo[data-animation="right"] {
+            animation: slideInRight 1s forwards;
+        }
+
+        .photo[data-animation="bottom"] {
+            animation: slideInBottom 1s forwards;
+        }
+
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px) scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+
+        @keyframes slideInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(50px) scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+
+        @keyframes slideInBottom {
+            0% {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        footer {
+display: flex;
+background-color: #ffffff;
+border-top: 2px solid #ddd;
+box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+margin-top: 100px;
+text-align: center;
+}
+/* General Styles for Sections */
+.footer-section {
+flex: 1;
+text-align: center;
+align-content: center;
+}
+
+.footer-section:first-child {
+background-color: #97c0c4;
+animation: first linear;
+animation-timeline: view();
+animation-range: entry 0% cover 10%;
+}
+.footer-section:nth-child(2) {
+background-color: #779699;
+animation: second linear;
+animation-timeline: view();
+animation-range: entry 0% cover 10%;
+}
+.footer-section:last-child {
+background-color: #97c0c4;
+animation: third linear;
+animation-timeline: view();
+animation-range: entry 0% cover 10%;
+}
+
+@keyframes first {
+from {
+opacity: 0;
+transform: translateX(-100px);
+}
+to {
+opacity: 1;
+transform: translateX(0px);  
+}
+}
+
+@keyframes second {
+from {
+opacity: 0;
+transform: translateY(100px);
+}
+to {
+opacity: 1;
+transform: translateY(0px);  
+}
+}
+
+@keyframes third {
+from {
+opacity: 0;
+transform: translateX(100px);
+}
+to {
+opacity: 1;
+transform: translateX(0px);  
+}
+}
+
+
+
+/* Vertical Divider Between Sections */
+.footer-section:not(:last-child) {
+border-right: 1px solid #ccc;
+}
+.fa {
+padding: 8px;
+font-size: 40px;
+width: 38px;
+height: 40px;
+text-align: center;
+text-decoration: none;
+margin: 10px 5px;
+border-radius: 50%;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fa:hover {
+transform: scale(1.2);
+box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.8);
+}
+
+.fa-facebook {
+background: #3B5998;
+color: white;
+}
+
+.fa-google {
+background: #dd4b39;
+color: white;
+}
+
+.fa-youtube {
+background: #bb0000;
+color: white;
+}
+
+.fa-instagram {
+background: #125688;
+color: white;
+}
+
+/* Glowing animation */
+@keyframes glow {
+0% {
+box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+50% {
+box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+100% {
+box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+}
+
+.fa:hover {
+animation: glow 1s infinite;
+}
+
+@media screen and (max-width:450px) {
+    header{
+        width: auto;
+    }
+    .images{
+        flex-direction: column;
+    }
+  
+    footer{
+        flex-direction: column;
+    }
+    .heading{
+        padding-top: 40px;
+    }
+
+    .footer-section:first-child,
+    .footer-section:nth-child(2) {
+        width: 100%;
+    }
+    .footer-section:last-child {
+        padding-bottom: 20px;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>கவிஞர் ஜீவி, மனதை உருக்கும் கவிதைகள்</h1>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="dropdown-menu" id="dropdownMenu">
+            <ul>
+                <li><a href="page5.html">கவிஞர் ஜீவி</a></li>
+                <li><a href="page3.html">தொகுப்புகள் பட்டியல்</a></li>
+                <li><a href="page4.html">விருதுகள் பட்டியல்</a></li>
+                <li><a href="page2.html">கவிதைகள்</a></li>
+                <li><a href="page6.html">நேர்காணல்கள்</a></li>
+                <li><a href="page8.html">மேடை பேச்சுகள்</a></li>
+                <li><a href="page7.html">புகைப்படங்கள்</a></li>
+                <li><a href="index.html">முகப்பு</a></li>
+            </ul>
+        </div>
+    </header>
+    <br>
+    <center>
+    <h1>புகைப்படங்கள்
+    </h1></center>
+    <br>
+    <section class="gallery">
+        <div class="photo" data-animation="right">
+            <img src="src/owner/pic9.jpg" alt="புகபடம் 29">
+        </div>
+        <div class="photo" data-animation="bottom">
+            <img src="src/owner/WhatsApp Image 2025-01-06 at 08.38.10_2f5f4f00.jpg" alt="புகபடம் 30">
+        </div>
+        <div class="photo" data-animation="right">
+            <img src="src/owner/WhatsApp Image 2025-01-06 at 08.44.44_4f14633b.jpg" alt="புகபடம் 29">
+        </div>
+        <div class="photo" data-animation="bottom">
+            <img src="src/owner/WhatsApp Image 2025-01-06 at 08.44.43_93e79fdd.jpg" alt="புகபடம் 30">
+        </div>
+        <div class="photo" data-animation="left">
+            <img src="src/owner/pic1.jpg" alt="புகபடம் 1">
+        </div>
+        <div class="photo" data-animation="right">
+            <img src="src/owner/pic10.jpg" alt="புகபடம் 2">
+        </div>
+        <div class="photo" data-animation="bottom">
+            <img src="src/owner/pic11.jpg" alt="புகபடம் 3">
+        </div>
+        <div class="photo" data-animation="bottom">
+            <img src="src/owner/pic14.jpg" alt="புகபடம் 6">
+        </div>
+        <div class="photo" data-animation="left">
+            <img src="src/owner/pic15.jpg" alt="புகபடம் 7">
+        </div>
+        <div class="photo" data-animation="right">
+            <img src="src/owner/pic16.jpg" alt="புகபடம் 8">
+        </div>
+        <div class="photo" data-animation="bottom">
+            <img src="src/owner/pic18.jpg" alt="புகபடம் 9">
+        </div>
+        <div class="photo" data-animation="left">
+            <img src="src/owner/pic19.jpg" alt="புகபடம் 10">
+        </div>
+        <div class="photo" data-animation="right">
+            <img src="src/owner/pic2.jpg" alt="புகபடம் 11">
+        </div>
+        <div class="photo" data-animation="bottom">
+            <img src="src/owner/pic20.jpg" alt="புகபடம் 12">
+        </div>
+        <div class="photo" data-animation="left">
+            <img src="src/owner/pic21.jpg" alt="புகபடம் 13">
+        </div>
+        <div class="photo" data-animation="right">
+            <img src="src/owner/pic22.jpg" alt="புகபடம் 14">
+        </div>
+        <div class="photo" data-animation="bottom">
+            <img src="src/owner/pic23.jpg" alt="புகபடம் 15">
+        </div>
+        <div class="photo" data-animation="left">
+            <img src="src/owner/pic24.jpg" alt="புகபடம் 16">
+        </div>
+        <div class="photo" data-animation="right">
+            <img src="src/owner/pic26.jpg" alt="புகபடம் 17">
+        </div>
+        <div class="photo" data-animation="bottom">
+            <img src="src/owner/pic25.jpg" alt="புகபடம் 18">
+        </div>
+        <div class="photo" data-animation="bottom">
+            <img src="src/owner/pic29.jpg" alt="புகபடம் 21">
+        </div>
+        <div class="photo" data-animation="left">
+            <img src="src/owner/pic3.jpg" alt="புகபடம் 22">
+        </div>
+        <div class="photo" data-animation="right">
+            <img src="src/owner/pic30.jpg" alt="புகபடம் 23">
+        </div>
+        <div class="photo" data-animation="bottom">
+            <img src="src/owner/pic4.jpg" alt="புகபடம் 24">
+        </div>
+        <div class="photo" data-animation="left">
+            <img src="src/owner/pic5.jpg" alt="புகபடம் 25">
+        </div>
+        <div class="photo" data-animation="right">
+            <img src="src/owner/pic6.jpg" alt="புகபடம் 26">
+        </div>
+        <div class="photo" data-animation="bottom">
+            <img src="src/owner/pic7.jpg" alt="புகபடம் 27">
+        </div>
+        <div class="photo" data-animation="left">
+            <img src="src/owner/pic8.jpg" alt="புகபடம் 28">
+        </div>
+    </section>
+    <footer>
+        <!-- Left Section -->
+        <div class="footer-section footer-left">
+            <h3>கவிஞர் ஜீவி கவிதைகள்</h3>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/share/17zuArNkj6/?mibextid=wwXIfr" class="fa fa-facebook"></a>
+                <a href="https://youtube.com/@geeveekavi417?si=7mAcOk8DAiUIKvST" class="fa fa-youtube"></a>
+                <a href="" class="fa fa-instagram"></a>
+                <a href="https://www.tamilwriters.in/2021/05/blog-post_33.html?m=1" class="fa fa-google"></a>
+            </div>
+        </div>
+    
+        <!-- Center Section -->
+        <div class="footer-section footer-center">
+            <h3><b>தொடர்புக்கு:</b> +91 9443120490</h3>
+            <h4><b>மின்னஞ்சல்:</b></h4><p>geeveekavi@gmail.com</p>
+        </div>
+    
+        <!-- Right Section -->
+        <div class="footer-section footer-right">
+            <h4>"கண்ணதாசன் கவிதையில் சொன்னது போல, கவிதை ஒரு வாழ்க்கைமுறை!"</h4>
+            <b><span>© 2025 geeveekavi.in All rights reserved.</span></b>
+        </div>
+    </footer>
+    <script>
+        // Dropdown Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('dropdownMenu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+
+</body>
+</html>
